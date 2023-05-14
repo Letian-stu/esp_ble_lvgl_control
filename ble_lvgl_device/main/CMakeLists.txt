@@ -1,0 +1,30 @@
+idf_component_register(SRCS 
+                        "app_main.c" 
+                        "lv_ui/app_ui.c" 
+                        "lv_ui/lv_port_indev.c" 
+                        
+                        "lv_ui/img/ui_img_bg_png.c" 
+                        "lv_ui/img/ui_img_buletooth_png.c" 
+                        "lv_ui/img/ui_img_clock_png.c" 
+                        "lv_ui/img/ui_img_daily_png.c" 
+                        "lv_ui/img/ui_img_speech_png.c" 
+                        "lv_ui/img/ui_img_time_png.c" 
+                        "lv_ui/img/ui_img_tool_png.c" 
+                        "lv_ui/img/ui_img_wifi_png.c" 
+                        "lv_ui/img/ui_img_board_png.c" 
+                        "lv_ui/img/ui_img_back_40_png.c" 
+                        "lv_ui/img/ui_img_menu_40_png.c" 
+
+                        # "../components/lvgl/demos/benchmark/lv_demo_benchmark.c" 
+                        # "../components/lvgl/demos/benchmark/assets/img_benchmark_cogwheel_alpha16.c" 
+                        # "../components/lvgl/demos/benchmark/assets/img_benchmark_cogwheel_argb.c" 
+                        # "../components/lvgl/demos/benchmark/assets/img_benchmark_cogwheel_chroma_keyed.c" 
+                        # "../components/lvgl/demos/benchmark/assets/img_benchmark_cogwheel_indexed16.c" 
+                        # "../components/lvgl/demos/benchmark/assets/img_benchmark_cogwheel_rgb.c" 
+                        # "../components/lvgl/demos/benchmark/assets/img_benchmark_cogwheel_rgb565a8.c" 
+                        # "../components/lvgl/demos/benchmark/assets/img_benchmark_cogwheel_alpha16.c" 
+
+                        INCLUDE_DIRS "."
+                        "lv_ui" 
+                        # "../components/lvgl/demos/benchmark"
+                        )
