@@ -15,6 +15,10 @@ idf_component_register(SRCS
                         "lv_ui/img/ui_img_back_40_png.c" 
                         "lv_ui/img/ui_img_menu_40_png.c" 
 
+                        "lv_ui/img/ui_img_armhour_png.c" 
+                        "lv_ui/img/ui_img_armminute_png.c" 
+                        "lv_ui/img/ui_img_armsecond_png.c" 
+                        "lv_ui/img/ui_img_watchface240_png.c" 
                         # "../components/lvgl/demos/benchmark/lv_demo_benchmark.c" 
                         # "../components/lvgl/demos/benchmark/assets/img_benchmark_cogwheel_alpha16.c" 
                         # "../components/lvgl/demos/benchmark/assets/img_benchmark_cogwheel_argb.c" 

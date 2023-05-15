@@ -2,7 +2,7 @@
  * @Author: Letian-stu
  * @Date: 2023-05-12 14:55
  * @LastEditors: Letian-stu
- * @LastEditTime: 2023-05-14 13:40
+ * @LastEditTime: 2023-05-14 16:43
  * @FilePath: /ble_lvgl_device/main/lv_ui/app_ui.h
  * @Description: 
  * Copyright (c) 2023 by ${git_name_email}, All Rights Reserved. 
@@ -21,6 +21,15 @@
 extern lv_group_t *Screen_btn_group;
 extern lv_group_t *back_menu_btn_group;
 
+
+
+extern lv_obj_t *ui_Time;
+extern lv_obj_t *ui_ImageWatchface;
+extern lv_obj_t *ui_ImageArmHour;
+extern lv_obj_t *ui_ImageArmMinute;
+extern lv_obj_t *ui_ImageArmSecond;
+
+
 LV_IMG_DECLARE(ui_img_bg_png);
 LV_IMG_DECLARE(ui_img_buletooth_png);   
 LV_IMG_DECLARE(ui_img_board_png);
@@ -32,6 +41,12 @@ LV_IMG_DECLARE(ui_img_tool_png);
 LV_IMG_DECLARE(ui_img_wifi_png);
 LV_IMG_DECLARE(ui_img_back_40_png);
 LV_IMG_DECLARE(ui_img_menu_40_png);
+
+LV_IMG_DECLARE( ui_img_watchface240_png);   // assets/watchface240.png
+LV_IMG_DECLARE( ui_img_armhour_png);   // assets/armHour.png
+LV_IMG_DECLARE( ui_img_armminute_png);   // assets/armMinute.png
+LV_IMG_DECLARE( ui_img_armsecond_png);   // assets/armSecond.png
+
 
 void ui_setup(void);
 void ui_Screen_Time_init(void);

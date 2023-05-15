@@ -39,7 +39,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/letian/Desktop/ble_lvgl_device/build/bootloader/esp-idf/soc/esp32s3/cmake_install.cmake")
+  include("/home/letian/Desktop/software/github/esp_ble_lvgl_control/ble_lvgl_device/build/bootloader/esp-idf/soc/esp32s3/cmake_install.cmake")
 
 endif()
 

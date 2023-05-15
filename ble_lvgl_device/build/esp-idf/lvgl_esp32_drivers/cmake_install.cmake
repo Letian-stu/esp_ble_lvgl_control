@@ -1,4 +1,4 @@
-# Install script for directory: /home/letian/Desktop/ble_lvgl_device/components/lvgl_esp32_drivers
+# Install script for directory: /home/letian/Desktop/software/github/esp_ble_lvgl_control/ble_lvgl_device/components/lvgl_esp32_drivers
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

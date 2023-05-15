@@ -54,5 +54,5 @@ source "/home/letian/Desktop/software/esp32/esp-idf/esp-idf/components/vfs/Kconf
 source "/home/letian/Desktop/software/esp32/esp-idf/esp-idf/components/wear_levelling/Kconfig"
 source "/home/letian/Desktop/software/esp32/esp-idf/esp-idf/components/wifi_provisioning/Kconfig"
 source "/home/letian/Desktop/software/esp32/esp-idf/esp-idf/components/wpa_supplicant/Kconfig"
-source "/home/letian/Desktop/ble_lvgl_device/components/lvgl/Kconfig"
-source "/home/letian/Desktop/ble_lvgl_device/components/lvgl_esp32_drivers/Kconfig"
+source "/home/letian/Desktop/software/github/esp_ble_lvgl_control/ble_lvgl_device/components/lvgl/Kconfig"
+source "/home/letian/Desktop/software/github/esp_ble_lvgl_control/ble_lvgl_device/components/lvgl_esp32_drivers/Kconfig"

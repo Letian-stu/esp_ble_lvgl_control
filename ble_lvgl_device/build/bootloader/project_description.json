@@ -1,8 +1,8 @@
 {
     "project_name":       "bootloader",
     "project_path":       "/home/letian/Desktop/software/esp32/esp-idf/esp-idf/components/bootloader/subproject",
-    "build_dir":          "/home/letian/Desktop/ble_lvgl_device/build/bootloader",
-    "config_file":        "/home/letian/Desktop/ble_lvgl_device/sdkconfig",
+    "build_dir":          "/home/letian/Desktop/software/github/esp_ble_lvgl_control/ble_lvgl_device/build/bootloader",
+    "config_file":        "/home/letian/Desktop/software/github/esp_ble_lvgl_control/ble_lvgl_device/sdkconfig",
     "config_defaults":    "",
     "app_elf":            "bootloader.elf",
     "app_bin":            "bootloader.bin",
