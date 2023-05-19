@@ -1,5 +1,12 @@
 idf_component_register(SRCS 
+                        # "ble_app/ble_hidd_demo_main.c"
+                        "ble_app/esp_hidd_prf_api.c"
+                        "ble_app/hid_dev.c"
+                        "ble_app/hid_device_le_prf.c"
+
                         "app_main.c" 
+                        "ble_hidd_main.c"
+
                         "lv_ui/app_ui.c" 
                         "lv_ui/lv_port_indev.c" 
                         
@@ -15,20 +22,28 @@ idf_component_register(SRCS
                         "lv_ui/img/ui_img_back_40_png.c" 
                         "lv_ui/img/ui_img_menu_40_png.c" 
 
-                        "lv_ui/img/ui_img_armhour_png.c" 
-                        "lv_ui/img/ui_img_armminute_png.c" 
-                        "lv_ui/img/ui_img_armsecond_png.c" 
-                        "lv_ui/img/ui_img_watchface240_png.c" 
-                        # "../components/lvgl/demos/benchmark/lv_demo_benchmark.c" 
-                        # "../components/lvgl/demos/benchmark/assets/img_benchmark_cogwheel_alpha16.c" 
-                        # "../components/lvgl/demos/benchmark/assets/img_benchmark_cogwheel_argb.c" 
-                        # "../components/lvgl/demos/benchmark/assets/img_benchmark_cogwheel_chroma_keyed.c" 
-                        # "../components/lvgl/demos/benchmark/assets/img_benchmark_cogwheel_indexed16.c" 
-                        # "../components/lvgl/demos/benchmark/assets/img_benchmark_cogwheel_rgb.c" 
-                        # "../components/lvgl/demos/benchmark/assets/img_benchmark_cogwheel_rgb565a8.c" 
-                        # "../components/lvgl/demos/benchmark/assets/img_benchmark_cogwheel_alpha16.c" 
+                        "lv_ui/img/ui_img_m_hour_png.c" 
+                        "lv_ui/img/ui_img_m_min_png.c" 
+                        "lv_ui/img/ui_img_m_sec_png.c" 
+                        "lv_ui/img/ui_img_m_background_png.c" 
+
+                        "lv_ui/img/ui_img_stop_70_png.c" 
+                        "lv_ui/img/ui_img_play_70_png.c" 
+                        "lv_ui/img/ui_img_next_70_png.c" 
+                        "lv_ui/img/ui_img_back_70_png.c" 
+                        "lv_ui/img/ui_img_m_music_png.c" 
+
+                        "lv_ui/img/ui_img_hightspeaker70_png.c" 
+                        "lv_ui/img/ui_img_lowvolume70_png.c" 
+
+                        "lv_ui/img/ui_img_lowvolume50_png.c" 
+                        "lv_ui/img/ui_img_hightaudio50_png.c" 
 
                         INCLUDE_DIRS "."
                         "lv_ui" 
-                        # "../components/lvgl/demos/benchmark"
+                        "ble_app" 
                         )
+
+target_compile_options(${COMPONENT_LIB} PRIVATE -Wno-unused-const-variable)
+
+

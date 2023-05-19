@@ -2,17 +2,15 @@
  * @Author: Letian-stu
  * @Date: 2023-05-05 09:18
  * @LastEditors: Letian-stu
- * @LastEditTime: 2023-05-14 17:15
+ * @LastEditTime: 2023-05-19 09:55
  * @FilePath: /ble_lvgl_device/main/app_main.c
  * @Description: 
  * Copyright (c) 2023 by ${git_name_email}, All Rights Reserved. 
  */
 #include <stdio.h>
-#include "freertos/FreeRTOS.h"
-#include "freertos/task.h"
-#include "freertos/semphr.h"
-#include "app_ui.h"
-#include "button.h"
+#include "app_main.h"
+
+#define TAG "main"
 
 SemaphoreHandle_t KeyreadMutex;
 TaskHandle_t KeyScan_Handle;
@@ -35,13 +33,15 @@ void keyscan_Task(void *p)
 #define ONE_HOUR_MS     (60 * 60 * 1000)
 #define TWELVE_HOUR_MS  (12 * 60 * 60 * 1000)
 
-
-int flag = 0;
+uint16_t clockflag = 0;
+uint16_t musicflag = 0;
 
 void app_main(void)
 {
    KeyreadMutex = xSemaphoreCreateMutex();
-   xTaskCreate(keyscan_Task, "keyscan_Task", 4096, NULL, 5, &KeyScan_Handle);
+   xTaskCreate(keyscan_Task, "keyscan_Task", 4096, NULL, 2, &KeyScan_Handle);
+
+   ble_init();
 
    app_ui_init();
    ui_setup();
@@ -56,9 +56,9 @@ void app_main(void)
       vTaskDelay(pdMS_TO_TICKS(10));
       lv_timer_handler();
 
-      if(flag == 1)
+      if(clockflag == 1)
       {
-         time_msss += 100;
+         time_msss += 10;
          clock_ms = (ms_offset + time_msss) % TWELVE_HOUR_MS;
          hour = clock_ms / ONE_HOUR_MS;
          minute = (clock_ms % ONE_HOUR_MS) / ONE_MINUTE_MS;
@@ -73,6 +73,12 @@ void app_main(void)
 
          angle = (angle + (hour * 3600)) / 12;
          lv_img_set_angle(ui_ImageArmHour, angle);
+      }
+
+      if(musicflag == 1)
+      {
+         time_msss += 10;
+         lv_img_set_angle(ui_music_img, time_msss % 360000);
       }
    }
 }

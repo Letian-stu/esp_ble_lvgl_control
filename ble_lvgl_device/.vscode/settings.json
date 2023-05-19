@@ -36,7 +36,14 @@
     "tuple": "c",
     "type_traits": "c",
     "lvgl.h": "c",
-    "random": "c"
+    "random": "c",
+    "complex": "c",
+    "app_main.h": "c",
+    "esp_gap_ble_api.h": "c",
+    "ble_hidd_main.h": "c",
+    "esp_hidd_prf_api.h": "c",
+    "hid_dev.h": "c",
+    "stdlib.h": "c"
   },
   "idf.adapterTargetName": "esp32s3",
   "idf.openOcdConfigs": [
