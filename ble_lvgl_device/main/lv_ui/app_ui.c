@@ -2,7 +2,7 @@
  * @Author: Letian-stu
  * @Date: 2023-05-12 14:55
  * @LastEditors: Letian-stu
- * @LastEditTime: 2023-05-19 18:31
+ * @LastEditTime: 2023-05-20 10:18
  * @FilePath: /ble_lvgl_device/main/lv_ui/app_ui.c
  * @Description:
  * Copyright (c) 2023 by ${git_name_email}, All Rights Reserved.
@@ -360,60 +360,49 @@ void lv_btn_play_stop_event_cb(lv_event_t *e)
     lv_event_code_t event = lv_event_get_code(e);
     if(LV_EVENT_CLICKED == event)
     {
-        if(obj == ui_play_btn)
+        if(sec_conn)
         {
-            if(musicflag)
+            if(obj == ui_play_btn)
             {
-                printf("stop \r\n");
-                musicflag = 0;
-                if(sec_conn)
+                if(musicflag)
                 {
+                    printf("stop \r\n");
+                    musicflag = 0;
                     esp_hidd_send_duomeiti_value(hid_conn_id, MY_CONTROL_STOP);
+                    lv_img_set_src(ui_paly_img, &ui_img_play_70_png);
                 }
-                lv_img_set_src(ui_paly_img, &ui_img_play_70_png);
-            }
-            else
-            {
-                printf("play \r\n");
-                musicflag = 1;
-                if(sec_conn)
+                else
                 {
+                    printf("play \r\n");
+                    musicflag = 1;
                     esp_hidd_send_duomeiti_value(hid_conn_id, MY_CONTROL_START);
+                    lv_img_set_src(ui_paly_img, &ui_img_stop_70_png);
                 }
-                lv_img_set_src(ui_paly_img, &ui_img_stop_70_png);
             }
-        }
-        else if(obj == ui_next_btn)
-        {
-            if(sec_conn)
+            else if(obj == ui_next_btn)
             {
                 printf("next \r\n");
                 esp_hidd_send_duomeiti_value(hid_conn_id, MY_CONTROL_MUSIC_NEXT);
             }
-        }
-        else if(obj == ui_rewind_btn)
-        {
-            if(sec_conn)
+            else if(obj == ui_rewind_btn)
             {
                 printf("rewind \r\n");
                 esp_hidd_send_duomeiti_value(hid_conn_id, MY_CONTROL_MUSIC_PRV);
             }
-        }
-        else if(obj == ui_val_up_btn)
-        {
-            if(sec_conn)
+            else if(obj == ui_val_up_btn)
             {
                 printf("val up \r\n");
                 esp_hidd_send_duomeiti_value(hid_conn_id, MY_CONTROL_VAL_UP);
             }
-        }
-        else if(obj == ui_val_down_btn)
-        {
-            if(sec_conn)
+            else if(obj == ui_val_down_btn)
             {
                 printf("val down \r\n");
                 esp_hidd_send_duomeiti_value(hid_conn_id, MY_CONTROL_VAL_DOWN);
             }
+        }
+        else
+        {
+            printf("check ble link");
         }
     }
 }
