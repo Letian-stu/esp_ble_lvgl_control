@@ -1,4 +1,4 @@
-/* * Data converted from /home/letian/Desktop/software/github/esp_ble_lvgl_control/ble_lvgl_device/build/esp-idf/mbedtls/x509_crt_bundle
+/* * Data converted from D:/C_Github/esp_ble_lvgl_control/ble_lvgl_device/build/esp-idf/mbedtls/x509_crt_bundle
  */
 .data
 .section .rodata.embedded
