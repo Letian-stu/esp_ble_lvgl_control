@@ -136,13 +136,15 @@ void hid_demo_task(void *pvParameters)
     while(1)
 	{
         vTaskDelay(1000 / portTICK_PERIOD_MS);
-        if (sec_conn) 
-		{
-            //ESP_LOGI(HID_DEMO_TAG, "Send the key");
-
-
-		}
-		
+        // if (sec_conn) 
+		// {
+            // ESP_LOGI(HID_DEMO_TAG, "up");
+            // backlight_change(bckl_handle, 1);
+            // vTaskDelay(3000 / portTICK_PERIOD_MS);
+            // ESP_LOGI(HID_DEMO_TAG, "down");
+            // backlight_change(bckl_handle, 0);
+            // vTaskDelay(3000 / portTICK_PERIOD_MS);
+		// }
 	}			
 }
     

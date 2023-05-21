@@ -43,7 +43,9 @@
     "ble_hidd_main.h": "c",
     "esp_hidd_prf_api.h": "c",
     "hid_dev.h": "c",
-    "stdlib.h": "c"
+    "stdlib.h": "c",
+    "esp_bt.h": "c",
+    "esp_bt_defs.h": "c"
   },
   "idf.adapterTargetName": "esp32s3",
   "idf.openOcdConfigs": [

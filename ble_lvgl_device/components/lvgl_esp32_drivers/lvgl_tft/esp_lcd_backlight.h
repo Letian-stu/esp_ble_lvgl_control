@@ -1,3 +1,12 @@
+/*
+ * @Author: Letian-stu
+ * @Date: 2023-05-12 14:53
+ * @LastEditors: Letian-stu
+ * @LastEditTime: 2023-05-20 11:48
+ * @FilePath: /ble_lvgl_device/components/lvgl_esp32_drivers/lvgl_tft/esp_lcd_backlight.h
+ * @Description: 
+ * Copyright (c) 2023 by ${git_name_email}, All Rights Reserved. 
+ */
 /**
  * @file esp_lcd_backlight.h
  */

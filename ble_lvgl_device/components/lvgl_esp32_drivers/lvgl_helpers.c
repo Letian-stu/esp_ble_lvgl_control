@@ -50,7 +50,7 @@
  **********************/
 
 /* Interface and driver initialization */
-void lvgl_driver_init(void)
+void *lvgl_driver_init(void)
 {
     ESP_LOGI(TAG, "Display buffer size: %d", DISP_BUF_SIZE);
 
@@ -62,7 +62,7 @@ void lvgl_driver_init(void)
         SPI_BUS_MAX_TRANSFER_SZ, 3,
         DISP_SPI_IO2, DISP_SPI_IO3);
     disp_spi_add_device(TFT_SPI_HOST);
-    disp_driver_init();
+    return disp_driver_init();
 }
 
 

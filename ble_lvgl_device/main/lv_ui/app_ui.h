@@ -2,7 +2,7 @@
  * @Author: Letian-stu
  * @Date: 2023-05-12 14:55
  * @LastEditors: Letian-stu
- * @LastEditTime: 2023-05-19 18:21
+ * @LastEditTime: 2023-05-20 11:47
  * @FilePath: /ble_lvgl_device/main/lv_ui/app_ui.h
  * @Description: 
  * Copyright (c) 2023 by ${git_name_email}, All Rights Reserved. 
@@ -27,7 +27,7 @@ extern lv_obj_t *ui_ImageArmHour;
 extern lv_obj_t *ui_ImageArmMinute;
 extern lv_obj_t *ui_ImageArmSecond;
 extern lv_obj_t *ui_music_img;
-
+extern disp_backlight_h bckl_handle;
 extern uint16_t clockflag;
 extern uint16_t musicflag;
 
@@ -59,6 +59,7 @@ LV_IMG_DECLARE(ui_img_m_music_png);
 LV_IMG_DECLARE(ui_img_hightaudio50_png);
 LV_IMG_DECLARE(ui_img_lowvolume50_png);
 
+void backlight_change(void *handle, bool mode);
 void ui_setup(void);
 void ui_Screen_Time_init(void);
 void ui_Screen_Daily_init(void);

@@ -200,10 +200,15 @@ static const uint8_t hidReportMap[] = {
     0x75, 0x01,       //   Report Size (1)
     0x95, 0x01,       //   Report Count (1)
 
-    0x09, 0xcd,       //   Usage (Play)		(cd)				    //播放
+    0x09, 0xb0,       //   Usage (Play)		(cd)				    //播放
     0x81, 0x06,       //   Input (Data,Var,Rel)
-    0x09, 0xcd,       //   Usage (stop)						        //停止
+    0x09, 0xcd,       //   Usage (stop)						        //
     0x81, 0x06,       //   Input (Data,Var,Rel)
+
+    // 0x09, 0xb0,       //   Usage (Play)		    				    //播放
+    // 0x81, 0x06,       //   Input (Data,Var,Rel)
+    // 0x09, 0xb1,       //   Usage (stop)						        //停止
+    // 0x81, 0x06,       //   Input (Data,Var,Rel)
 
     0x09, 0xb5,       //   Usage (Scan Next Track)					//下一曲
     0x81, 0x06,       //   Input (Data,Var,Rel)
@@ -219,6 +224,8 @@ static const uint8_t hidReportMap[] = {
     0x81, 0x06,       //   Input (Data,Var,Rel)
     0x09, 0x70,       //   Usage (Display Brightness Decrement)		//亮度降低
     0x81, 0x06,       //   Input (Data,Var,Rel)
+
+    
     0xc0              // End Collection
 
 #endif

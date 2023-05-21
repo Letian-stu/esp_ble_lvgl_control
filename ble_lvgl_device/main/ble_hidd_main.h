@@ -2,7 +2,7 @@
  * @Author: Letian-stu
  * @Date: 2023-05-18 10:50
  * @LastEditors: Letian-stu
- * @LastEditTime: 2023-05-19 09:52
+ * @LastEditTime: 2023-05-20 11:46
  * @FilePath: /ble_lvgl_device/main/ble_hidd_main.h
  * @Description: 
  * Copyright (c) 2023 by ${git_name_email}, All Rights Reserved. 
@@ -14,7 +14,6 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "freertos/semphr.h"
-#include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "freertos/event_groups.h"
 #include "esp_system.h"
@@ -23,7 +22,7 @@
 #include "esp_log.h"
 #include "nvs_flash.h"
 #include "esp_bt.h"
-
+#include "app_ui.h"
 #include "esp_hidd_prf_api.h"
 #include "esp_bt_defs.h"
 #include "esp_gap_ble_api.h"
@@ -33,10 +32,9 @@
 #include "esp_bt_device.h"
 #include "driver/gpio.h"
 #include "hid_dev.h"
+#include "esp_lcd_backlight.h"
+#include "app_ui.h"
 
-extern bool sec_conn;
-
-// extern bool send_volum_up;
 extern bool sec_conn;
 extern uint16_t hid_conn_id;
 
