@@ -132,19 +132,23 @@ void gap_event_handler(esp_gap_ble_cb_event_t event, esp_ble_gap_cb_param_t *par
 
 void hid_demo_task(void *pvParameters)
 {
-    vTaskDelay(1000 / portTICK_PERIOD_MS);
+    // static uint8_t key_vaule[4] = {HID_KEY_ESCAPE, HID_KEY_F5, HID_KEY_ARROW_UP, HID_KEY_ARROW_DOWN};
+    // esp_hidd_send_keyboard_value(hid_conn_id, LEFT_CONTROL_KEY_MASK, &key_vaule[3], 1);
+    // esp_hidd_send_keyboard_value(hid_conn_id, LEFT_CONTROL_KEY_MASK, &key_vaule[3], 0);
     while(1)
 	{
         vTaskDelay(1000 / portTICK_PERIOD_MS);
-        // if (sec_conn) 
-		// {
+        if (sec_conn) 
+		{
             // ESP_LOGI(HID_DEMO_TAG, "up");
-            // backlight_change(bckl_handle, 1);
+            // esp_hidd_send_keyboard_value(hid_conn_id, LEFT_CONTROL_KEY_MASK, &key_vaule[3], 1);
+            // esp_hidd_send_keyboard_value(hid_conn_id, LEFT_CONTROL_KEY_MASK, &key_vaule[3], 0);
             // vTaskDelay(3000 / portTICK_PERIOD_MS);
             // ESP_LOGI(HID_DEMO_TAG, "down");
-            // backlight_change(bckl_handle, 0);
+            // esp_hidd_send_keyboard_value(hid_conn_id, LEFT_CONTROL_KEY_MASK, &key_vaule[2], 1);
+            // esp_hidd_send_keyboard_value(hid_conn_id, LEFT_CONTROL_KEY_MASK, &key_vaule[2], 0);
             // vTaskDelay(3000 / portTICK_PERIOD_MS);
-		// }
+		}
 	}			
 }
     

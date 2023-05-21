@@ -2,7 +2,7 @@
  * @Author: Letian-stu
  * @Date: 2023-05-12 14:55
  * @LastEditors: Letian-stu
- * @LastEditTime: 2023-05-20 11:47
+ * @LastEditTime: 2023-05-21 17:49
  * @FilePath: /ble_lvgl_device/main/lv_ui/app_ui.h
  * @Description: 
  * Copyright (c) 2023 by ${git_name_email}, All Rights Reserved. 
@@ -13,6 +13,7 @@
 
 #define LV_TICK_PERIOD_MS 1
 
+#define COLOR_DODGER_RED     0xee4866
 #define COLOR_DODGER_BLUE    0x1e90ff
 #define COLOR_PURPLE         0xa020f0
 #define COLOR_write			 0xffffff
@@ -59,12 +60,18 @@ LV_IMG_DECLARE(ui_img_m_music_png);
 LV_IMG_DECLARE(ui_img_hightaudio50_png);
 LV_IMG_DECLARE(ui_img_lowvolume50_png);
 
+LV_IMG_DECLARE(ui_img_ppt_down_png);
+LV_IMG_DECLARE(ui_img_ppt_esc_png);
+LV_IMG_DECLARE(ui_img_ppt_start_png);
+LV_IMG_DECLARE(ui_img_ppt_up_png);
+
 void backlight_change(void *handle, bool mode);
 void ui_setup(void);
 void ui_Screen_Time_init(void);
 void ui_Screen_Daily_init(void);
 void ui_Screen_Wifi_init(void);
 void ui_Screen_Ble_init(void);
+void ui_Screen_Ble2_init(void);
 void ui_Screen_Voice_init(void);
 void ui_Screen_Clock_init(void);
 void ui_Screen_Set_init(void);

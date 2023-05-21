@@ -39,6 +39,11 @@ idf_component_register(SRCS
                         "lv_ui/img/ui_img_lowvolume50_png.c" 
                         "lv_ui/img/ui_img_hightaudio50_png.c" 
 
+                        "lv_ui/img/ui_img_ppt_down_png.c" 
+                        "lv_ui/img/ui_img_ppt_esc_png.c" 
+                        "lv_ui/img/ui_img_ppt_start_png.c" 
+                        "lv_ui/img/ui_img_ppt_up_png.c" 
+                        
                         INCLUDE_DIRS "."
                         "lv_ui" 
                         "ble_app" 
