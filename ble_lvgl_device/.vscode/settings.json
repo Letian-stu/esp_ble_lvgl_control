@@ -45,7 +45,9 @@
     "hid_dev.h": "c",
     "stdlib.h": "c",
     "esp_bt.h": "c",
-    "esp_bt_defs.h": "c"
+    "esp_bt_defs.h": "c",
+    "hidd_le_prf_int.h": "c",
+    "thread": "c"
   },
   "idf.adapterTargetName": "esp32s3",
   "idf.openOcdConfigs": [
