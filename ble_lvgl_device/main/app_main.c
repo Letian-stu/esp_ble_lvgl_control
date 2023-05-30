@@ -2,7 +2,7 @@
  * @Author: Letian-stu
  * @Date: 2023-05-05 09:18
  * @LastEditors: Letian-stu
- * @LastEditTime: 2023-05-20 20:31
+ * @LastEditTime: 2023-05-30 13:35
  * @FilePath: /ble_lvgl_device/main/app_main.c
  * @Description: 
  * Copyright (c) 2023 by ${git_name_email}, All Rights Reserved. 
@@ -12,6 +12,7 @@
 
 #define TAG "main"
 
+SemaphoreHandle_t LvglMutex;
 SemaphoreHandle_t KeyreadMutex;
 TaskHandle_t KeyScan_Handle;
 
@@ -39,6 +40,7 @@ uint16_t musicflag = 0;
 void app_main(void)
 {
    KeyreadMutex = xSemaphoreCreateMutex();
+   LvglMutex = xSemaphoreCreateMutex();
    xTaskCreate(keyscan_Task, "keyscan_Task", 4096, NULL, 2, &KeyScan_Handle);
 
    ble_init();
@@ -58,7 +60,12 @@ void app_main(void)
    while (1)
    {
       vTaskDelay(pdMS_TO_TICKS(10));
+
+      if (pdTRUE == xSemaphoreTake(LvglMutex, portMAX_DELAY))
+      {
       lv_timer_handler();
+         xSemaphoreGive(LvglMutex);
+      }
 
       if(clockflag == 1)
       {

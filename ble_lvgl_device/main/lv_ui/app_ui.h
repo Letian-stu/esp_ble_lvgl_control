@@ -2,7 +2,7 @@
  * @Author: Letian-stu
  * @Date: 2023-05-12 14:55
  * @LastEditors: Letian-stu
- * @LastEditTime: 2023-05-21 17:49
+ * @LastEditTime: 2023-05-30 13:33
  * @FilePath: /ble_lvgl_device/main/lv_ui/app_ui.h
  * @Description: 
  * Copyright (c) 2023 by ${git_name_email}, All Rights Reserved. 
@@ -76,5 +76,4 @@ void ui_Screen_Voice_init(void);
 void ui_Screen_Clock_init(void);
 void ui_Screen_Set_init(void);
 void ui_Screen_About_init(void);
-void ui_setup(void);
 void app_ui_init(void);

@@ -2,7 +2,7 @@
  * @Author: Letian-stu
  * @Date: 2023-05-12 14:55
  * @LastEditors: Letian-stu
- * @LastEditTime: 2023-05-21 18:10
+ * @LastEditTime: 2023-05-30 13:37
  * @FilePath: /ble_lvgl_device/main/lv_ui/app_ui.c
  * @Description:
  * Copyright (c) 2023 by ${git_name_email}, All Rights Reserved.
@@ -12,6 +12,7 @@
 
 #define TAG "ui"
 
+static const char * btns[] ={"I know", "Close",""};
 disp_backlight_h bckl_handle;
 static lv_disp_draw_buf_t draw_buf;
 static lv_color_t buf1[DISP_BUF_SIZE];
@@ -51,6 +52,7 @@ lv_obj_t *ui_ImageArmMinute;
 lv_obj_t *ui_ImageArmSecond;
 
 //ble
+lv_obj_t *mbox;
 lv_obj_t *ui_paly_img;
 lv_obj_t *ui_play_btn;
 
@@ -282,6 +284,11 @@ void back_btn_create(lv_obj_t *obj)
 
 void ui_Screen_Time_init(void)
 {
+    if(ui_Screen_Time != NULL)
+    {
+        //printf("del obj\r\n");
+        lv_obj_del(ui_Screen_Time);
+    }
     ui_Screen_Time = lv_obj_create(NULL);
     lv_obj_clear_flag(ui_Screen_Time, LV_OBJ_FLAG_SCROLLABLE); /// Flags
 
@@ -351,6 +358,12 @@ static void Daily_event_handler(lv_event_t * e)
 
 void ui_Screen_Daily_init(void)
 {
+    if(ui_Screen_Daily != NULL)
+    {
+        //printf("del obj\r\n");
+        lv_obj_del(ui_Screen_Daily);
+    }
+
     ui_Screen_Daily = lv_obj_create(NULL);
     lv_obj_clear_flag(ui_Screen_Daily, LV_OBJ_FLAG_SCROLLABLE); /// Flags
 
@@ -379,6 +392,11 @@ void ui_Screen_Daily_init(void)
 
 void ui_Screen_Wifi_init(void)
 {
+    if(ui_Screen_Wifi != NULL)
+    {
+        //printf("del obj\r\n");
+        lv_obj_del(ui_Screen_Wifi);
+    }
     ui_Screen_Wifi = lv_obj_create(NULL);
     lv_obj_clear_flag(ui_Screen_Wifi, LV_OBJ_FLAG_SCROLLABLE); /// Flags
 
@@ -463,16 +481,34 @@ void lv_btn_play_stop_event_cb(lv_event_t *e)
         }
         else
         {
+            mbox = lv_msgbox_create(NULL, "Error", "Please check Bluetooth is opened!", btns, false);
+            //lv_obj_add_event_cb(mbox, msg_box_event_cb, LV_EVENT_VALUE_CHANGED, NULL);
+            lv_obj_center(mbox);
+            lv_obj_set_width(mbox, lv_pct(90));     /// 1
+            lv_obj_set_height(mbox, lv_pct(50));    /// 1
+            lv_obj_del_delayed(lv_obj_get_parent(mbox), 1000);
+        
             printf("check ble link");
         }
     }
 }
 
+static void msg_box_event_cb(lv_event_t * e)
+{
+    lv_obj_t * obj = lv_event_get_current_target(e);
+    printf("Button %s clicked\r\n", lv_msgbox_get_active_btn_text(obj));
+    lv_msgbox_close(obj);
+}
+
 void ui_Screen_Ble_init(void)
 {
+    if(ui_Screen_Ble != NULL)
+    {
+        //printf("del obj\r\n");
+        lv_obj_del(ui_Screen_Ble);
+    }
     ui_Screen_Ble = lv_obj_create(NULL);
     lv_obj_clear_flag(ui_Screen_Ble, LV_OBJ_FLAG_SCROLLABLE); /// Flags
-
     back_btn_create(ui_Screen_Ble);
 
     ui_val_up_btn = lv_btn_create(ui_Screen_Ble);
@@ -582,11 +618,27 @@ void ui_Screen_Ble_init(void)
     lv_obj_set_size(ui_btn_img, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
     lv_obj_align(ui_btn_img, LV_ALIGN_CENTER, 0, 0);
     lv_img_set_src(ui_btn_img, &ui_img_next_70_png);
-}
 
+
+    if(!sec_conn)
+    {
+        mbox = lv_msgbox_create(NULL, "Error", "Please check Bluetooth is opened!", btns, false);
+        lv_obj_add_event_cb(mbox, msg_box_event_cb, LV_EVENT_VALUE_CHANGED, NULL);
+        lv_obj_center(mbox);
+        lv_obj_set_width(mbox, lv_pct(90));     /// 1
+        lv_obj_set_height(mbox, lv_pct(50));    /// 1
+        lv_obj_del_delayed(lv_obj_get_parent(mbox), 3000);
+    }
+}
 
 void ui_Screen_Ble2_init(void)
 {
+    if(ui_Screen_Ble2 != NULL)
+    {
+        //printf("del obj\r\n");
+        lv_obj_del(ui_Screen_Ble2);
+    }
+
     ui_Screen_Ble2 = lv_obj_create(NULL);
     lv_obj_clear_flag(ui_Screen_Ble2, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
 
@@ -698,6 +750,12 @@ void ui_Screen_Ble2_init(void)
 
 void ui_Screen_Voice_init(void)
 {
+    if(ui_Screen_Voice != NULL)
+    {
+        //printf("del obj\r\n");
+        lv_obj_del(ui_Screen_Voice);
+    }
+
     ui_Screen_Voice = lv_obj_create(NULL);
     lv_obj_clear_flag(ui_Screen_Voice, LV_OBJ_FLAG_SCROLLABLE); /// Flags
 
@@ -710,6 +768,12 @@ void ui_Screen_Voice_init(void)
 
 void ui_Screen_Clock_init(void)
 {
+    if(ui_Screen_Clock != NULL)
+    {
+        //printf("del obj\r\n");
+        lv_obj_del(ui_Screen_Clock);
+    }
+
     ui_Screen_Clock = lv_obj_create(NULL);
     lv_obj_clear_flag(ui_Screen_Clock, LV_OBJ_FLAG_SCROLLABLE); /// Flags
 
@@ -722,6 +786,12 @@ void ui_Screen_Clock_init(void)
 
 void ui_Screen_Set_init(void)
 {
+    if(ui_Screen_Set != NULL)
+    {
+        //printf("del obj\r\n");
+        lv_obj_del(ui_Screen_Set);
+    }
+
     ui_Screen_Set = lv_obj_create(NULL);
     lv_obj_clear_flag(ui_Screen_Set, LV_OBJ_FLAG_SCROLLABLE); /// Flags
 
@@ -734,6 +804,12 @@ void ui_Screen_Set_init(void)
 
 void ui_Screen_About_init(void)
 {
+    if(ui_Screen_About != NULL)
+    {
+        //printf("del obj\r\n");
+        lv_obj_del(ui_Screen_About);
+    }
+
     ui_Screen_About = lv_obj_create(NULL);
     lv_obj_clear_flag(ui_Screen_About, LV_OBJ_FLAG_SCROLLABLE); /// Flags
 
